@@ -15,7 +15,21 @@ In the future, I plan to upload scripts to batch process through mitogenomes.
 
 1. Install the latest version of [Docker Desktop](https://www.docker.com/products/docker-desktop/) for your prefered operating system
 2. Visit the Docker image link above and note the MITOS version you want to use. Replace the `<tag>` below with the verion number. This will create a Docker image that you can view in the Docker Desktop app.
-    - `docker pull quay.io/biocontainers/mitos:<tag>`
-    - Ex: `docker pull quay.io/biocontainers/mitos:2.1.3--pyhdfd78af_0`
-3. Adapt the command below to run your containerCreate container
+    - `$ docker pull quay.io/biocontainers/mitos:<tag>`
+    - Ex: `$ docker pull quay.io/biocontainers/mitos:2.1.3--pyhdfd78af_0`
+3. Adapt the command below to create and run a container from the above image.
+    ```
+    $ docker run \
+    --name mitos2.1.3 \
+    -it \
+    -v /Users/person/mydata:/mnt/mydata \
+    -w /mnt/mydata \
+    imageID
+    ```
+    - `--name` names the container
+    - `-it` runs the container in interactive mode
+    - `-v` mounts and binds a local directory (`/Users/person/mydata`) to the container (`/mnt/mydata`)
+    - `-w` sets the working directory of the interactive session to the specified path (`/mnt/mydata`)
+    - `imageID` is a placeholder value where the user will enter in the hash value given to the image by Docker. 
+4. 
 
