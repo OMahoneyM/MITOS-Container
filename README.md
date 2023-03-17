@@ -20,11 +20,11 @@ In the future, I plan to upload scripts to batch process through mitogenomes.
 3. Adapt the command below to create and run a container from the above image.
     ```
     $ docker run \
-    --name mitos2.1.3 \
-    -it \
-    -v /Users/person/mydata:/mnt/mydata \
-    -w /mnt/mydata \
-    imageID
+        --name mitos2.1.3 \
+        -it \
+        -v /Users/person/mydata:/mnt/mydata \
+        -w /mnt/mydata \
+        imageID
     ```
     - `--name` names the container
     - `-it` runs the container in interactive mode
@@ -39,4 +39,17 @@ In the future, I plan to upload scripts to batch process through mitogenomes.
         - This will print the working directory and should point you to the path specifed in `-w`
     - `$ ls`
         - This will list the contents of the local directory you bound to this container
-
+5. Run mitos by adapting the command below
+    ```
+    $ runmitos.py \
+        -i path/to/example_mitogen.fasta \
+        -c # \
+        -o path/to/output/directory \
+        -R path/to/refseq89m \
+        -r path/to/refseq89m
+    ```
+    - `-c` specifies the mitochondrial code to be used. These values are standard integers that can be found at [NCBI](https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi) 
+    - `-r` is the path to the stored REFSEQ database
+    - `-R` is the path to the stored REFLIB database
+        - **Note:** I use the same path for `-r` and `-R` and it seems to work
+    
